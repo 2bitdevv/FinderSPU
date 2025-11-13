@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPU Finder</title>
+  <link rel="icon" type="image/x-icon" href="img/spulogo.png" />
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Header Section Logo and main navigation -->
+  <header class="header">
+    <div class="logo">
+      <a href="https://www.spu.ac.th/">
+        <img src="img/spulogo.png" alt="SPU Logo" />
+      </a>
+      <h1 class="finder">
+        <a href="index.html">
+          Finder <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+      </h1>
+    </div>
+    <div class="header-buttons">
+      <a href="#guide" class="scroll-btn">วิธีใช้งาน</a>
+      <button id="letpost" class="btn btn-primary" type="button">ประกาศใหม่</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Search Section: Search bar and filters -->
+    <div class="search-container">
+      <h2 class="search-title">ของหายได้คืน SPU</h2>
+      <p class="search-subtitle">
+        ระบบประกาศของหาย–ได้คืนสำหรับนักศึกษาและบุคลากร มหาวิทยาลัยศรีปทุม
+      </p>
+
+      <!-- Search and Filter Form -->
+      <div class="search-form">
+        <!-- Search Input -->
+        <div class="form-group">
+          <p class="form-title">ค้นหา</p>
+          <input type="text" class="form-control" placeholder="เช่น บัตรนักศึกษา, กระเป๋าสตางค์" />
+        </div>
+
+        <!-- Category Filter -->
+        <div class="form-group">
+          <p class="form-title">เลือกประเภท</p>
+          <select id="categorySelect" class="form-control">
+            <option value="">ทั้งหมด</option>
+            <option value="card">บัตร/เอกสาร</option>
+            <option value="electronics">อิเล็กทรอนิกส์</option>
+            <option value="clothing">เสื้อผ้า</option>
+            <option value="personal">ของใช้ส่วนตัว</option>
+            <option value="etc">อื่นๆ</option>
+          </select>
+        </div>
+
+        <!-- Status Filter -->
+        <div class="form-group">
+          <p class="form-title">สถานะ</p>
+          <select id="statusSelect" class="form-control">
+            <option value="">ทั้งหมด</option>
+            <option value="lost">ตามหา (ของหาย)</option>
+            <option value="found">พบแล้ว (เก็บได้)</option>
+            <option value="returned">ส่งคืนแล้ว</option>
+          </select>
+        </div>
+
+        <!-- Time Filter -->
+        <div class="form-group">
+          <p class="form-title">ช่วงเวลา</p>
+          <select id="timeSelect" class="form-control">
+            <option value="">ใหม่สุด</option>
+            <option value="oldest">เก่าสุด</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Posts Section Cards will be dynamically added here by JavaScript -->
+    <section class="post">
+      <div class="content">
+        <div id="list" class="list"></div>
+      </div>
+    </section>
+
+    <!-- Guide Section How to use instructions -->
+    <section id="guide" class="guide-section">
+      <div class="guide-box">
+        <h2 class="guide-title">วิธีใช้งานด่วน</h2>
+        <ol>
+          <li>ค้นหาหรือใส่รายละเอียดข้างบน</li>
+          <li>กด <a href="#letpost" class="btn-post">ประกาศใหม่</a> เพื่อเพิ่มของหาย/ของที่เก็บได้</li>
+          <li>สามารถแก้ไข/ปิดประกาศได้ภายหลัง หรือ หมดเวลาประกาศ</li>
+        </ol>
+
+        <hr />
+
+        <h3 class="guide-title">สิ่งที่ควรมีในโพสต์</h3>
+        <ul>
+          <li>รูปภาพของที่หาย/เก็บได้</li>
+          <li>ข้อมูลที่ชัดเจน</li>
+          <li>สถานที่ที่เก็บได้</li>
+          <li>ช่วงเวลาที่เก็บได้</li>
+          <li>ข้อมูลการติดต่อ (สำคัญ)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Modal: Create/Edit Post -->
+    <div id="postModal" class="modal">
+      <div class="modal-content">
+        <h2>สร้างประกาศใหม่</h2>
+        <form id="postForm">
+          <label>ประเภท</label>
+          <select id="postType" required>
+            <option value="found">พบของ</option>
+            <option value="lost">ของหาย</option>
+          </select>
+
+          <label>หัวข้อ</label>
+          <input id="postTitle" type="text" placeholder="เช่น บัตรนักศึกษา, โทรศัพท์" required />
+
+          <label>หมวด</label>
+          <select id="postCategory" required>
+            <option value="card">บัตร/เอกสาร</option>
+            <option value="electronics">อิเล็กทรอนิกส์</option>
+            <option value="clothing">เสื้อผ้า</option>
+            <option value="personal">ของใช้ส่วนตัว</option>
+            <option value="other">อื่นๆ</option>
+          </select>
+
+          <label>สถานที่</label>
+          <input id="postLocation" type="text" placeholder="เช่น อาคาร 11 ชั้น 3" />
+
+          <label>วันที่ / เวลา</label>
+          <input id="postDate" type="datetime-local" required />
+
+          <label>รายละเอียด</label>
+          <textarea id="postDetail" rows="3" placeholder="ลักษณะพิเศษ / สี / ยี่ห้อ"></textarea>
+
+          <label>ช่องทางติดต่อ</label>
+          <input id="postContact" type="text" placeholder="เช่น Line ID, เบอร์โทร" />
+
+          <label>เลือกรูปภาพ</label>
+          <input id="postImage" type="file" accept="image/*" />
+
+          <div class="modal-actions">
+            <button type="submit" class="btns btn-primarys">บันทึก</button>
+            <button type="button" id="closeModal" class="btns btn-outlines">ยกเลิก</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Manage Post Edit/Delete/Mark as Returned -->
+    <div id="manageModal" class="modal">
+      <div class="modal-content dark-mode">
+        <h2>จัดการประกาศ</h2>
+        <div class="post-info">
+          <h3 id="manageTitle">หัวข้อ</h3>
+          <p id="manageCategory"></p>
+          <p id="manageLocation"></p>
+          <p id="manageDate"></p>
+        </div>
+        <div class="manage-actions">
+          <button id="editPost" class="btns btn-primarys">แก้ไข</button>
+          <button id="markReturned" class="btns btn-outlines">เปลี่ยนเป็นส่งคืนแล้ว</button>
+          <button id="deletePost" class="btns btn-danger">ลบประกาศ</button>
+        </div>
+        <button id="closeManage" class="close-btn">ปิด</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p class="footline">
+        &copy; <span id="year">2025</span> Sripatum university.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript Module -->
+  <script type="module" src="./js/index.js"></script>
+  <!-- Sweet Alert Frame Work  -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

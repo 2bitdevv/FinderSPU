@@ -1,0 +1,1430 @@
+/* Global Reset & Base Styles - รีเซ็ตและตั้งค่าพื้นฐาน */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
+}
+
+/* สไตล์ Body - พื้นหลังสีเทาอ่อน กัน scroll แนวนอน */
+body {
+  background-color: #f5f5f5;
+  overflow-x: hidden;
+}
+
+/*  smooth scrolling สำหรับลิงก์ anchor */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Header Section - ส่วนหัวของหน้าเว็บ */
+/* คอนเทนเนอร์หลักของ Header - พื้นหลังสีขาว มีเงา */
+.header {
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* คอนเทนเนอร์โลโก้ - จัดเรียงด้วย flexbox */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo img {
+  height: 40px;
+  margin: 0 2rem;
+}
+
+/* ชื่อเว็บไซต์ - ขนาดใหญ่ ไม่ให้ตัวอักษรห่อบรรทัด */
+.finder {
+  font-size: 2rem;
+  white-space: nowrap;
+}
+
+.finder a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* กลุ่มปุ่มใน Header */
+.header-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Button Styles - สไตล์ปุ่มทุกประเภท */
+/* ปุ่มพื้นฐาน - มี transition สำหรับ animation */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+/* ปุ่มแบบ Outline - มีขอบ พื้นโปร่งใส */
+.btn-outline {
+  border: 1px solid #333;
+  background: transparent;
+}
+
+/* hover - เปลี่ยนเป็นพื้นดำ ตัวอักษรขาว ยกขึ้น */
+.btn-outline:hover {
+  background-color: #2b2b2b;
+  color: white;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
+  transition: background 0.3s ease;
+}
+
+/* active - กดลงแล้วหดเล็กลง */
+.btn-outline:active {
+  transform: scale(0.97);
+  background-color: #616161;
+}
+
+/* ปุ่ม Primary - สีน้ำเงิน */
+.btn-primary {
+  background-color: #0066ff;
+  color: white;
+}
+
+/* hover - ยกขึ้นพร้อมเงาสีน้ำเงิน */
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 12px rgba(0, 102, 255, 0.5);
+  transition: background 0.3s ease;
+}
+
+/* active - กดลงแล้วหดเล็กลง เปลี่ยนเป็นน้ำเงินอ่อน */
+.btn-primary:active {
+  transform: scale(0.97);
+  background-color: #428eff;
+}
+
+/* ปุ่มทางเลือก - padding และ font-size ต่างจาก btn */
+.btns {
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 14px;
+  border: none;
+  vertical-align: middle;
+}
+
+/* ปุ่ม Primary สีชมพู */
+.btn-primarys {
+  background: #e5007d;
+  color: #fff;
+  border: 1px solid #e5007d;
+}
+
+.btn-primarys:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 12px rgba(229, 0, 125, 0.3);
+}
+
+.btn-primarys:active {
+  transform: scale(0.97);
+  background-color: #d11baf;
+}
+
+/* ปุ่ม Outline สีชมพู */
+.btn-outlines {
+  background: transparent;
+  border: 1px solid #e5007d;
+  color: #e5007d;
+}
+
+/* hover - เปลี่ยนพื้นเป็นสีชมพู ตัวอักษรขาว */
+.btn-outlines:hover {
+  background-color: #e5007d;
+  color: white;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-outlines:active {
+  transform: scale(0.97);
+  background-color: #d11baf;
+}
+
+/* ปุ่ม Danger - สีแดง */
+.btn-danger {
+  background: #b91c1c;
+  color: white;
+  border: none;
+}
+
+/* hover - เปลี่ยนเป็นแดงสว่างขึ้น ยกขึ้น */
+.btn-danger:hover {
+  background-color: #dc2626 !important;
+  transform: translateY(-2px) scale(1.05);
+  transition: background 0.3s ease;
+}
+
+.btns:hover {
+  opacity: 0.85;
+}
+/* Search Section - ส่วนค้นหา */
+/* คอนเทนเนอร์ค้นหา - พื้นหลังสีเทา จัดกลาง */
+.search-container {
+  background-color: #e0e0e0;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 1200px;
+  width: 95%;
+}
+
+.search-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.search-subtitle {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ฟอร์มค้นหา - grid 4 คอลัมน์ */
+.search-form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-title {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+.form-control {
+  color: #333;
+  border: 1px solid #ccc; 
+  border-radius: 6px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  background-color: #fff; 
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #0066ff; /* เปลี่ยนเป็นสีน้ำเงินเมื่อ focus */
+}
+
+/* Post Section & Card Layout - ส่วนแสดงโพสต์และการ์ด */
+.post {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  padding: 60px 20px 20px 20px;
+  max-width: 1280px;
+  width: 95%;
+  margin: 0 auto 2rem auto;
+  min-height: 400px;
+  position: relative;
+}
+
+.content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 40px;
+}
+
+/* กริดแสดงการ์ด - 4 คอลัมน์ */
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+/* Card Styles - สไตล์การ์ด */
+/* การ์ดหลัก - layout แบบ flexible */
+.card {
+  width: 100%;
+  max-width: none;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s;
+  min-height: 420px;
+}
+
+/* ซ่อนการ์ดเมื่อใช้ pagination */
+.card.paginated-hidden {
+  display: none !important;
+}
+
+/* hover - ยกขึ้นและขยายเล็กน้อย */
+.card:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px) scale(1.03);
+}
+
+/* รูปภาพของการ์ด - ความสูงคงที่ 220px */
+.thumb {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  border-bottom: 1px solid #eee;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  background-color: #000;
+  flex-shrink: 0;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ส่วนข้อมูลในการ์ด - ยืดหยุ่นตามเนื้อหา */
+.info {
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ป้ายสถานะ - Found/Lost/Returned */
+.status {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  width: fit-content;
+}
+
+/* สีป้ายสถานะตามประเภทการ์ด */
+/* สถานะ Found - เขียว */
+.card.found .status {
+  background: #c9f4ea;
+  color: #047857;
+}
+
+/* สถานะ Lost - แดง */
+.card.lost .status {
+  background: #fde4ec;
+  color: #b91c1c;
+}
+
+/* สถานะ Returned - เทา */
+.card.returned .status {
+  background: #e0e0e0;
+  color: #666;
+}
+
+/* หัวข้อและรายละเอียดในการ์ด */
+.info h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.info p {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+/* กลุ่มแท็ก - wrap ได้ */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.tags span {
+  background: #f3f3f3;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #555;
+}
+
+/* กลุ่มปุ่มด้านล่างการ์ด */
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+/* Pagination Component - ส่วนแบ่งหน้า */
+/* คอนเทนเนอร์ pagination - อยู่มุมขวาบนของ post */
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+}
+
+/* ปุ่มเลขหน้า - พื้นดำ ตัวอักษรขาว */
+/* Pagination Component - ส่วนแบ่งหน้า */
+/* คอนเทนเนอร์ pagination - อยู่มุมขวาบนของ post */
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+}
+
+/* ปุ่มเลขหน้า - พื้นดำ ตัวอักษรขาว */
+.pagination .page-btn {
+  background: #222;
+  color: #fff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  font-size: 15px;
+}
+
+/* hover - ยกขึ้นพร้อมเงา */
+.pagination .page-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+  background: #333;
+}
+
+/* active - กดลงเล็กน้อย */
+.pagination .page-btn:active:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* disabled - ปุ่มที่ไม่สามารถกดได้ (prev/next ที่สุดทาง) */
+.pagination .page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ปุ่มหน้าปัจจุบัน - สีชมพู */
+.pagination .page-btn.active {
+  background: #e5007d;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(229, 0, 125, 0.3);
+}
+
+.pagination .page-btn.active:hover {
+  background: #d11baf;
+  transform: translateY(-2px);
+}
+
+/* จุดสามจุด (...) สำหรับหน้าที่ข้าม */
+.pagination .ellipsis {
+  color: #666;
+  padding: 0 6px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* ข้อความแสดงหน้าปัจจุบัน (เช่น "Page 1 of 10") */
+.pagination .page-info {
+  margin-left: 8px;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* Guide Section - ส่วนคู่มือการใช้งาน */
+/* wrapper ของ guide - จัดกลาง */
+.guide-section {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #f5f5f5;
+}
+
+/* กล่องเนื้อหา guide - มีเงาเบาๆ */
+.guide-box {
+  background: #e0e0e0;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 800px;
+  width: 100%;
+  line-height: 1.6;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* หัวข้อหลักของ guide */
+.guide-box h2 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: #222;
+}
+
+/* หัวข้อย่อยในแต่ละส่วน */
+.guide-box h3 {
+  font-size: 1.2rem;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* รายการแบบมีเลข (1. 2. 3.) */
+.guide-box ol {
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+/* รายการแบบจุด */
+.guide-box ul {
+  padding-left: 20px;
+}
+
+.guide-box li {
+  margin-bottom: 6px;
+  color: #444;
+}
+
+/* ข้อความหมายเหตุ - ตัวเล็กกว่า */
+.guide-box .note {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+/* เส้นแบ่ง */
+.guide-box hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 16px 0;
+}
+
+/* ข้อความไฮไลต์ - พื้นสีน้ำเงินอ่อน (เหมือนปากกาเน้นข้อความ) */
+.mark {
+  background-color: #99c2ff;
+  padding: 0 7px;
+  border-radius: 5px;
+}
+
+/* หัวข้อ guide ที่มีขีดเส้นใต้ */
+.guide-title {
+  text-decoration: underline;
+}
+
+/* Modal Styles - หน้าต่าง popup */
+/* overlay ปิดทั้งหน้าจอ - พื้นดำโปร่งแสง */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* กล่องเนื้อหา modal - พื้นขาว มุมมน */
+.modal-content {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Contact Popup - popup แสดงข้อมูลติดต่อ (z-index สูงกว่า modal ปกติ) */
+.contact-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  justify-content: center;
+  align-items: center;
+}
+
+/* animation fade in เมื่อเปิด popup */
+.contact-popup[style*="display: flex"] {
+  opacity: 1;
+}
+
+/* กล่องเนื้อหา contact popup - มี animation slide up bounce */
+.contact-popup-content {
+  background: white;
+  padding: 28px 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  animation: slideUpBounce 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  margin: auto;
+}
+
+/* หัวข้อ popup - มีขีดเส้นล่างสีชมพู */
+.contact-popup-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+  color: #222;
+  text-align: center;
+  border-bottom: 2px solid #e5007d;
+  padding-bottom: 12px;
+  font-weight: 600;
+}
+
+/* ข้อความข้อมูลติดต่อ - อยู่ในกล่องสีเทา */
+.contact-popup-content p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  word-break: break-word;
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+/* ปุ่มปิด popup - สีชมพู */
+.contact-popup-content .close-contact-btn {
+  width: 100%;
+  padding: 12px;
+  background: #e5007d;
+  color: white;
+  border: 1px solid #e5007d;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.contact-popup-content .close-contact-btn:hover {
+  background: #d11baf;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 12px rgba(229, 0, 125, 0.3);
+}
+
+.contact-popup-content .close-contact-btn:active {
+  transform: scale(0.97);
+  background: #b8009e;
+}
+
+/* Animation - popup เด้งขึ้นมา */
+@keyframes slideUpBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.02); /* เด้งเกินไปนิดหน่อย */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* หัวข้อ modal - จัดกลาง */
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* label ในฟอร์ม modal */
+.modal-content label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* input, select, textarea ใน modal */
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: "Kanit", sans-serif;
+}
+
+/* กลุ่มปุ่มใน modal - กระจายห่างกัน */
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* modal แบบ dark mode */
+.modal-content.dark-mode {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+/* กลุ่มปุ่มจัดการ */
+.manage-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+/* กลุ่มปุ่มจัดการ */
+.manage-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+/* Close Button - ปุ่มปิด */
+/* ปุ่มปิด - พื้นโปร่งใส ขอบขาว */
+.close-btn {
+  margin-top: 20px;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 8px;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.close-btn:hover {
+  background-color: #00b4d8;
+  border-color: #00b4d8;
+  color: #fff;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 12px rgba(0, 180, 216, 0.4);
+}
+
+/* Footer Section - ส่วนท้ายหน้าเว็บ */
+footer {
+  background-color: #e0e0e0;
+  padding: 1rem;
+  margin-top: 2rem;
+  color: #333;
+  text-align: center;
+}
+
+.footline {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* cursor เป็น default สำหรับข้อความที่ไม่ต้องกด */
+.search-title,
+.search-subtitle,
+.finder,
+.footline:hover {
+  cursor: default;
+}
+
+/* Utility Button Classes - ปุ่มเพิ่มเติม */
+/* ปุ่มเลื่อนไปยังส่วนต่างๆ */
+.scroll-btn {
+  display: inline-block;
+  background-color: #fff;
+  color: #0066ff;
+  border: 2px solid #0066ff;
+  padding: 8px 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* hover - เปลี่ยนเป็นพื้นน้ำเงิน */
+.scroll-btn:hover {
+  background-color: #0066ff;
+  color: white;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 12px rgba(0, 102, 255, 0.5);
+  transition: background 0.3s ease;
+}
+.scroll-btn:active {
+  transform: scale(0.97);
+  background-color: #428eff;
+}
+
+/* ปุ่มลิงก์โพสต์ - padding น้อย inline */
+.btn-post {
+  display: inline;
+  background-color: #fff;
+  color: #0066ff;
+  padding: 3px 7px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.5s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+.btn-post:hover {
+  background-color: #0066ff;
+  color: white;
+  box-shadow: 0 5px 12px rgba(0, 102, 255, 0.5);
+  transition: background 0.3s ease;
+}
+.btn-post:active {
+  transform: scale(0.97);
+  background-color: #428eff;
+}
+
+/* Responsive Design */
+/* Desktop Large - 1200px ขึ้นไป - 4 คอลัมน์ */
+@media (min-width: 1200px) {
+  .list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Desktop - ต่ำกว่า 1080px - 3 คอลัมน์ */
+@media (max-width: 1080px) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .search-form {
+    gap: 0.8rem;
+  }
+}
+
+/* Tablet Landscape - ต่ำกว่า 980px */
+@media (max-width: 980px) {
+  /* ฟอร์มค้นหาเปลี่ยนเป็น 2 คอลัมน์ */
+  .search-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* การ์ดยังคง 3 คอลัมน์ แต่ลด gap */
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  
+  /* ปรับตำแหน่ง pagination */
+  .pagination {
+    top: 12px;
+    right: 15px;
+  }
+}
+
+/* Tablet - ต่ำกว่า 876px - การ์ด 2 คอลัมน์ */
+@media (max-width: 876px) {
+  .header {
+    padding: 0.8rem;
+  }
+  
+  /* ลดขนาดโลโก้ */
+  .logo img {
+    height: 35px;
+    margin: 0 1rem;
+  }
+  /* ลดขนาดชื่อเว็บ */
+  .finder {
+    font-size: 1.3rem;
+  }
+  /* เปลี่ยนเป็น 2 คอลัมน์ */
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* ลด padding ของ post */
+  .post {
+    padding: 60px 15px 15px 15px;
+  }
+}
+
+/* Small Tablet - ต่ำกว่า 786px */
+@media (max-width: 786px) {
+  .search-container {
+    padding: 1.2rem;
+  }
+  .search-title {
+    font-size: 1.3rem;
+  }
+  .search-subtitle {
+    font-size: 0.85rem;
+  }
+  .guide-box {
+    padding: 25px;
+  }
+  
+  /* ลดขนาดปุ่ม pagination */
+  .pagination .page-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+  
+  /* ปรับขนาด contact popup */
+  .contact-popup-content {
+    width: 85%;
+    max-width: 380px;
+    padding: 24px 26px;
+  }
+}
+
+/* Two Column Layout - 760px ถึง 451px */
+@media (max-width: 760px) and (min-width: 451px) {
+  .post {
+    padding: 60px 20px 20px 20px;
+    width: 96%;
+  }
+  .content {
+    padding: 0 10px;
+  }
+  
+  /* บังคับให้เป็น 2 คอลัมน์ */
+  .list {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px;
+    max-width: 100%;
+  }
+  
+  /* ปรับขนาดการ์ด */
+  .card {
+    width: 100%;
+    max-width: 100%;
+    min-height: 380px;
+  }
+  .thumb {
+    height: 200px;
+  }
+  .info {
+    padding: 14px;
+  }
+  
+  /* ลดขนาดตัวอักษรในการ์ด */
+  .info h3 {
+    font-size: 0.95rem;
+  }
+  .info p {
+    font-size: 0.85rem;
+  }
+  .status {
+    font-size: 11px;
+  }
+  .tags span {
+    font-size: 11px;
+  }
+  /* ลดขนาดปุ่ม action */
+  .actions .btns {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Mobile Actions - ต่ำกว่า 495px */
+@media (max-width: 495px) {
+  /* ปุ่มยังเรียงแนวนอน */
+  .actions {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .actions .btns {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+  
+  /* ปุ่มใน modal เรียงแนวตั้ง */
+  .modal-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .modal-actions .btns {
+    width: 100%;
+  }
+
+  /* ปุ่มจัดการเรียงแนวตั้ง */
+  .manage-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .manage-actions .btns {
+    width: 100%;
+  }
+  .btn-primarys {
+    margin-bottom: 0;
+  }
+}
+
+/* Mobile Landscape - ต่ำกว่า 450px */
+@media (max-width: 450px) {
+  /* จัด header ให้อยู่กลางแนวตั้ง */
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .logo {
+    width: 100%;
+    justify-content: center;
+  }
+  .header-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* ฟอร์มค้นหาเป็น 1 คอลัมน์ */
+  .search-form {
+    grid-template-columns: 1fr !important;
+    gap: 0.8rem;
+  }
+  /* ลด padding ของ post */
+  .post {
+    padding: 60px 12px 20px 12px !important;
+    width: 96%;
+  }
+  .content {
+    padding: 0 5px !important;
+    width: 100%;
+    display: block !important;
+  }
+  
+  /* บังคับให้การ์ดเป็น 1 คอลัมน์ จัดกลาง */
+  .list {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 15px;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 5px !important;
+  }
+  /* การ์ดเต็มความกว้าง */
+  .card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 360px;
+    margin: 0 !important;
+  }
+  .thumb {
+    height: 180px !important;
+  }
+  .info {
+    padding: 14px;
+  }
+  /* ปุ่มเรียงแนวนอนเท่ากัน */
+  .actions {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px;
+  }
+  .actions .btns {
+    flex: 1;
+    min-width: 0;
+  }
+  /* pagination อยู่มุมขวาบน */
+  .pagination {
+    position: absolute !important;
+    top: 12px !important;
+    right: 15px !important;
+    left: auto !important;
+    justify-content: flex-end !important;
+    margin: 0 !important;
+    width: auto !important;
+    padding: 0 !important;
+  }
+  .contact-popup-content {
+    width: 90%;
+    max-width: 340px;
+    padding: 22px 24px;
+  }
+  .contact-popup-content h3 {
+    font-size: 1.15rem;
+  }
+  .contact-popup-content p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile - ต่ำกว่า 560px */
+@media (max-width: 560px) {
+  .logo img {
+    height: 32px;
+    margin: 0 0.5rem;
+  }
+  .finder {
+    font-size: 1.2rem;
+  }
+  .btn,
+  .scroll-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  .search-container {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+  .search-title {
+    font-size: 1.2rem;
+  }
+  .pagination .page-btn {
+    width: 38px;
+    height: 38px;
+  }
+  .pagination .page-info {
+    font-size: 0.85rem;
+  }
+}
+/* Small Mobile - ต่ำกว่า 480px */
+@media (max-width: 480px) {
+  /* เพิ่มระยะห่างสำหรับปุ่ม primary ใน modal */
+  .btn-primarys {
+    /* margin-bottom: 10px; */
+    /* margin error */
+  }
+  .header {
+    padding: 0.8rem 0.6rem;
+  }
+  .logo {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  .logo img {
+    height: 30px;
+  }
+  .finder {
+    font-size: 1.1rem;
+  }
+  .header-buttons {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  /* ปุ่มใน header แบ่ง flex เท่าๆ กัน */
+  .btn,
+  .scroll-btn {
+    flex: 1;
+    padding: 0.5rem 0.7rem;
+    font-size: 0.85rem;
+  }
+  .search-container {
+    padding: 1rem;
+    width: 95%;
+  }
+  .search-title {
+    font-size: 1.1rem;
+  }
+  .search-subtitle {
+    font-size: 0.85rem;
+  }
+  .form-control {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .post {
+    width: 95%;
+    padding: 60px 10px 20px 10px !important;
+  }
+  .content {
+    padding: 0 !important;
+  }
+  
+  /* บังคับให้การ์ดเรียงแนวตั้ง 1 คอลัมน์ */
+  .list {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 15px;
+  }
+  .card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 360px !important;
+  }
+  .thumb {
+    height: 180px !important;
+  }
+  .info h3 {
+    font-size: 1rem;
+  }
+  .info p {
+    font-size: 0.85rem;
+  }
+  .modal-content {
+    padding: 18px 22px;
+    width: 92%;
+  }
+  .modal-content h2 {
+    font-size: 1.1rem;
+  }
+  
+  /* จัด pagination ไว้มุมขวาบน */
+  .pagination {
+    position: absolute !important;
+    top: 12px !important;
+    right: 10px !important;
+    gap: 5px;
+  }
+  .pagination .page-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+  .guide-box {
+    padding: 18px;
+  }
+  .contact-popup-content {
+    width: 88%;
+    padding: 20px 22px;
+  }
+  .contact-popup-content h3 {
+    font-size: 1.1rem;
+  }
+  .contact-popup-content p {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+  .contact-popup-content .close-contact-btn {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Extra Small Mobile - ต่ำกว่า 320px (หน้าจอเล็กมาก) */
+@media (max-width: 320px) {
+  .header {
+    padding: 0.7rem 0.5rem;
+  }
+  .logo img {
+    height: 28px;
+  }
+  .finder {
+    font-size: 1rem;
+  }
+  .btn,
+  .scroll-btn {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.85rem;
+  }
+  .search-container {
+    padding: 0.8rem;
+    width: 95%;
+  }
+  .search-title {
+    font-size: 1.05rem;
+  }
+  .form-control {
+    padding: 0.45rem;
+    font-size: 0.85rem;
+  }
+  .post {
+    padding: 60px 8px 20px 8px !important;
+    width: 95%;
+  }
+  .content {
+    padding: 0 !important;
+  }
+  
+  /* การ์ด 1 คอลัมน์ gap น้อยลง */
+  .list {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px;
+  }
+  .card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 350px !important;
+  }
+  .thumb {
+    height: 170px !important;
+  }
+  .info {
+    padding: 12px;
+  }
+  .info h3 {
+    font-size: 0.95rem;
+  }
+  .info p {
+    font-size: 0.8rem;
+  }
+  .status {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+  .tags span {
+    font-size: 11px;
+  }
+  .actions .btns {
+    padding: 7px 10px;
+    font-size: 0.85rem;
+  }
+  .pagination {
+    position: absolute !important;
+    top: 12px !important;
+    right: 8px !important;
+    gap: 4px;
+  }
+  .pagination .page-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+  .modal-content {
+    padding: 15px 18px;
+    width: 92%;
+  }
+  .contact-popup-content {
+    width: 90%;
+    max-width: 300px;
+    padding: 18px 20px;
+  }
+  .contact-popup-content h3 {
+    font-size: 1rem;
+    margin-bottom: 14px;
+  }
+  .contact-popup-content p {
+    font-size: 0.85rem;
+    padding: 10px;
+    margin-bottom: 16px;
+  }
+  .contact-popup-content .close-contact-btn {
+    padding: 9px;
+    font-size: 0.9rem;
+  }
+  .btn-primarys {
+    margin-bottom: 4px;
+  }
+}
+
+/* Additional Utility & Edge Cases - กรณีพิเศษเพิ่มเติม */
+/* หน้าจอเล็กมากๆ - ให้อ่านง่าย */
+@media (max-width: 360px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .card {
+    max-width: 100%;
+  }
+  .btn-primarys {
+    /* margin-bottom: 4px; */
+  }
+}
+
+/* Landscape Orientation - แนวนอนสำหรับมือถือ */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* ลดความสูง modal ในแนวนอน */
+  .modal-content {
+    max-height: 85vh;
+  }
+  
+  .header {
+    padding: 0.5rem;
+  }
+  .search-container {
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+  /* เปิด scroll ให้ contact popup ในแนวนอน */
+  .contact-popup-content {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+}
+/* Print Styles - สไตล์สำหรับการพิมพ์ */
+@media print {
+  /* ซ่อนส่วนที่ไม่ต้องพิมพ์ */
+  .header-buttons,
+  .pagination,
+  .actions,
+  footer,
+  .contact-popup {
+    display: none;
+  }
+  
+  /* ป้องกันการ์ดแตกข้ามหน้า */
+  .card {
+    break-inside: avoid;
+  }
+}
+/*  ปรับขนาด SweetAlert2 */
+div:where(.swal2-container) .swal2-popup {
+  /* กว้างเกือบเต็มจอ 90% ไม่เกิน 350px */
+  width: 90% !important;       
+  max-width: 350px !important; 
+  font-size: 14px !important;  
+  padding: 15px !important;   
+}
+/* ปรับขนาด Icon scale แทน width */
+div:where(.swal2-container) .swal2-icon {
+  transform: scale(0.6) !important; 
+  margin-top: 10px !important;      
+  margin-bottom: 5px !important;    
+}
+div:where(.swal2-container) .swal2-popup {
+  width: 90% !important;
+  max-width: 350px !important;
+  font-size: 14px !important;
+  padding: 15px !important;
+}
