@@ -35,7 +35,7 @@ const app = initializeApp(firebaseConfig);
 initializeFirestore(app, { experimentalForceLongPolling: true }); // แก้ปัญหาการเชื่อมต่อในบาง Network
 const db = getFirestore(app);
 
-console.log("🔥🔥🔥 Firebase connected:", app.name);
+console.log("Firebase connected", app.name);
 
 // ให้หน้าเว็บ DOM โหลดเสร็จสมบูรณ์ก่อนเริ่มทำงาน
 document.addEventListener("DOMContentLoaded", async () => {
